@@ -1,19 +1,39 @@
-var books = [
-{id: 1, title: 'Java How To Program', author: 'Deitel & Deitel', year: 2007},
-{id: 2, title: 'Patterns of Enterprise Application Architecture', author: 'Martin Fowler', year: 2002},
-{id: 3, title: 'Head First Design Patterns', author: 'Elisabeth Freeman', year: 2004},
-{id: 4, title: 'Java How To Program', author: 'Deitel & Deitel', year: 2007}
-];
+var array = [];
 
-books.sort(orderTitleAsc);
+addBook(1, 'Java How To Program', 'Deitel & Deitel', 2007);
+addBook(2, 'Patterns of Enterprise Application Architecture', 'Martin Fowler', 2002);
+addBook(3, 'Head First Design Patterns', 'Elisabeth Freeman', 2004);
+addBook(4, 'Internet & World Wide Web: How to Program', 'Deitel & Deitel', 2007);
 
-function orderTitleAsc(a, b){
-    if(a.title < b.title) return -1;
-    if(a.title > b.title) return 1;
-    return 0;
+function addBook(id, title, author, year) {
+    var book = new Book(id, title, author, year);
+    array.push(book);
+
 }
 
-/* books.forEach((a, b)=>{
-    console.log(a, b);
-}) */
-console.log(books);
+this.orderBookAtribute('year', '>');
+
+function orderBookAtribute(atribute, operator) {
+    switch (operator) {
+        case '>':
+            array.sort((a, b) => {
+                if (a[atribute] < b[atribute]) return -1;
+                if (a[atribute] > b[atribute]) return 1;
+                return 0;
+            })
+            break;
+        case '<':
+            array.sort((a, b) => {
+                if (a[atribute] > b[atribute]) return -1;
+                if (a[atribute] < b[atribute]) return 1;
+                return 0;
+            })
+            break;
+        default:
+            console.log('nothing');
+    }
+}
+
+array.forEach((a)=>{
+    console.log(a.year);
+})
