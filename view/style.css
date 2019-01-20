@@ -1,0 +1,21 @@
+body {
+    background-color: #f8f8f8;
+}
+
+.custom-control-label {
+    white-space: nowrap;
+}
+
+#ordenar {
+    margin: 0 auto;
+    width: 90px;
+    margin-top: 10px;
+}
+
+.divsDrop {
+    
+    width: 350px;
+    height: 110px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+  }
