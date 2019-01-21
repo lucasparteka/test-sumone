@@ -1,46 +1,39 @@
 class BookController {
 
     constructor() {
-        this._array = [];
-
-        //this.createBooks();
-        this.orderBooks();
+        this.booksOrder();
     }
 
-    /* get Obj(){
-        return this.obj;
-    }
+    booksOrder() {
+        let valuesAvailables = [['title', '>'], ['title', '<'], ['author', '>'], ['author', '<'], ['year', '>'], ['year', '<']];
+        let valuesSelected = [];
 
-    set Obj(value){
-        this.obj = value;
-    } */
-    /*  createBooks() {
- 
-         this._array.push(new Book(1, 'Java How To Program', 'Deitel & Deitel', 2007));
-         this._array.push(new Book(2, 'Patterns of Enterprise Application Architecture', 'Martin Fowler', 2002));
-         this._array.push(new Book(3, 'Head First Design Patterns', 'Elisabeth Freeman', 2004));
-         this._array.push(new Book(4, 'Internet & World Wide Web: How to Program', 'Deitel & Deitel', 2007));
- 
-         let aaa = this._array.slice();
-         this._array.slice(this.orderBookAtribute(aaa, 'author', '<'));
-         console.log(aaa);
-         console.log(this._array)
-     } */
-
-    orderBooks() {
-        let obj = [['title', '>'], ['title', '<'], ['author', '>'], ['author', '<'], ['year', '>'], ['year', '<']];
-        let arr = [];
         document.querySelector('#ordenar').addEventListener('click', () => {
-            var atributes = document.querySelectorAll('.divsDrop .card .custom-control-input');
-            atributes.forEach((a) => {
-                if (a.checked) {
-                    arr.push(obj[a.value]);
+            let selectedAttributes = document.querySelectorAll('.divsDrop .card .custom-control-input');
+            selectedAttributes.forEach((bookAttribute) => {
+                if (bookAttribute.checked) {
+                    valuesSelected.push(valuesAvailables[bookAttribute.value]);
                 }
             });
-            //console.log(arr);
-            let arrayBooks = this.loadBooksArray();
+
+            var arrayBooks = this.loadBooksArray();
+            arrayBooks.sort(function (a, b) {
+
+                for (let i in valuesSelected) {
+                    if (valuesSelected[i][1] == '>') {
+                        if (a[valuesSelected[i][0]] > b[valuesSelected[i][0]]) return 1;
+                        if (a[valuesSelected[i][0]] < b[valuesSelected[i][0]]) return -1;
+                    } else {
+                        if (a[valuesSelected[i][i]] > b[valuesSelected[i][0]]) return -1;
+                        if (a[valuesSelected[i][i]] < b[valuesSelected[i][0]]) return 1;
+                    }
+                    if (i == valuesSelected.length - 1) break;
+                }
+
+            });
             console.log(arrayBooks);
         });
+        
     }
 
     loadBooksArray() {
@@ -60,29 +53,31 @@ class BookController {
         return books;
     }
 
-    orderBookAtribute(array, atribute, operator) {
-
+    /* bookArrayOrder(array, attribute, operator) {
+ 
+        let arrayOrder = array.slice();
         switch (operator) {
             case '>':
-                this._array.sort((a, b) => {
-                    if (a[atribute] < b[atribute]) return -1;
-                    if (a[atribute] > b[atribute]) return 1;
+                arrayOrder.sort((a, b) => {
+                    if (a[attribute] < b[attribute]) return -1;
+                    if (a[attribute] > b[attribute]) return 1;
                     return 0;
                 })
                 break;
             case '<':
-                this._array.sort((a, b) => {
-                    if (a[atribute] > b[atribute]) return -1;
-                    if (a[atribute] < b[atribute]) return 1;
+                arrayOrder.sort((a, b) => {
+                    if (a[attribute] > b[attribute]) return -1;
+                    if (a[attribute] < b[attribute]) return 1;
                     return 0;
                 })
                 break;
             default:
                 console.log('nothing');
         }
-
-        //console.log(this._array);
-        return array;
+ 
+        //console.log(array)
+        return arrayOrder;
     }
-
+ */
 }
+
