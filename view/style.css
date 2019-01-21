@@ -12,10 +12,21 @@ body {
     margin-top: 10px;
 }
 
+.card-body{
+    cursor: move;
+    background-color: #fdfcfc;
+}
+
 .divsDrop {
-    
-    width: 350px;
-    height: 110px;
-    padding: 10px;
-    border: 1px solid #aaaaaa;
+    background-color: #f8f8f8;
+    width: 330px;
+    height: 92px;
+    border: 1px dotted #cccccc;
   }
+
+#text-drop{
+    color: #ccc;
+    text-align: center;
+    font-weight: 300;
+    text-transform: uppercase;
+}
