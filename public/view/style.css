@@ -1,0 +1,47 @@
+.custom-control-label {
+    white-space: nowrap;
+}
+
+#ordenar {
+    margin: 0 auto;
+    width: 90px;
+    margin-top: 10px;
+}
+#limpar {
+    margin: 0 auto;
+    width: 90px;
+    margin-top: 10px;
+}
+
+.card-body{
+    cursor: move;
+}
+
+.divsDrop {
+    width: 335px;
+    height: 94px;
+    border: 2px dashed #929292;
+    margin: 0 auto;
+  }
+
+#text-drop{
+    color: #cccccc;
+    text-align: center;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.labels {
+    color: #e0e0e0;
+    position: relative;
+    float: left;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.card-body .mini-card{
+    background-color: #fafafa;
+}
+ #div-drop {
+     margin-top: 20px;
+ }
